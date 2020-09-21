@@ -1,12 +1,61 @@
 (function ($) {
-  Survey.StylesManager.applyTheme("modern");
+  Survey.StylesManager.applyTheme('modern');
 
-  const storageName = "color_survey";
+  var localSurveyStrings = {
+    pagePrevText: 'Précédent',
+    pageNextText: 'Suivant',
+    completeText: 'Finaliser',
+  };
+
+  // Survey.surveyLocalization.locales["fr"] = localSurveyStrings;
+
+  const storageName = 'color_survey';
   let surveyId = undefined;
 
-  const sessionClear = () => {
+  const surveyInit = () => {
+    $.get('./survey.json').then((json) => {
+      window.survey = new Survey.Model(json);
+
+      survey.locale = 'fr';
+
+      Object.assign(survey, {
+        pagePrevText: 'Précédent',
+        pageNextText: 'Suivant',
+        completeText: 'Finaliser',
+      });
+
+      // survey.onComplete.add(function (result) {
+      //   document.querySelector("#surveyResult").textContent =
+      //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+      // });
+
+      survey.onPartialSend.add(function (survey) {
+        saveSurveyData(survey);
+      });
+      survey.onComplete.add(function (survey, options) {
+        saveSurveyData(survey, true);
+      });
+
+      survey.sendResultOnPageNext = true;
+      var prevData = window.localStorage.getItem(storageName) || null;
+      if (prevData) {
+        var data = JSON.parse(prevData);
+        survey.data = data;
+        if (data.pageNo) {
+          survey.currentPageNo = data.pageNo;
+        }
+        if (data.surveyId) {
+          surveyId = data.surveyId;
+        }
+      }
+      $('#surveyElement').Survey({ model: survey });
+    });
+  };
+
+  const surveySessionClear = () => {
     window.localStorage.removeItem(storageName);
-  }
+    surveyId = undefined;
+  };
 
   const saveSurveyData = (survey, completed = false) => {
     var data = survey.data;
@@ -15,20 +64,19 @@
     if (surveyId) {
       window.localStorage.setItem(storageName, JSON.stringify(data));
       $.ajax({
-        method: "PUT",
+        method: 'PUT',
         url: `/surveys/${surveyId}`,
         data: {
           json: data,
         },
       }).then((_) => {
         if (completed) {
-          sessionClear();
+          surveySessionClear();
         }
       });
     } else {
-      console.log("posting", data);
       $.post({
-        url: "/surveys/",
+        url: '/surveys/',
         data: {
           json: data,
         },
@@ -37,35 +85,14 @@
         window.localStorage.setItem(storageName, JSON.stringify(data));
       });
     }
-  }
+  };
 
-  $.get("./survey.json").then((json) => {
-    window.survey = new Survey.Model(json);
+  $(() => {
+    surveyInit();
 
-    // survey.onComplete.add(function (result) {
-    //   document.querySelector("#surveyResult").textContent =
-    //     "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    // });
-
-    survey.onPartialSend.add(function (survey) {
-      saveSurveyData(survey);
+    $('.surveyReset').click(() => {
+      surveySessionClear();
+      survey.clear(true, true);
     });
-    survey.onComplete.add(function (survey, options) {
-      saveSurveyData(survey, true);
-    });
-
-    survey.sendResultOnPageNext = true;
-    var prevData = window.localStorage.getItem(storageName) || null;
-    if (prevData) {
-      var data = JSON.parse(prevData);
-      survey.data = data;
-      if (data.pageNo) {
-        survey.currentPageNo = data.pageNo;
-      }
-      if (data.surveyId) {
-        surveyId = data.surveyId;
-      }
-    }
-    $("#surveyElement").Survey({ model: survey });
   });
 })(jQuery);
