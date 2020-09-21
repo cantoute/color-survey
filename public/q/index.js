@@ -40,12 +40,16 @@
       var prevData = window.localStorage.getItem(storageName) || null;
       if (prevData) {
         var data = JSON.parse(prevData);
-        survey.data = data;
-        if (data.pageNo) {
-          survey.currentPageNo = data.pageNo;
-        }
+
         if (data.surveyId) {
           surveyId = data.surveyId;
+          delete data.surveyId;
+        }
+
+        survey.data = data;
+
+        if (data.pageNo) {
+          survey.currentPageNo = data.pageNo;
         }
       }
       $('#surveyElement').Survey({ model: survey });
@@ -59,7 +63,6 @@
 
   const saveSurveyData = (survey, doSurveySessionClear = false) => {
     var data = survey.data;
-    // delete data.surveyId;
     data.pageNo = survey.currentPageNo;
 
     if (surveyId) {
