@@ -57,13 +57,17 @@
     surveyId = undefined;
   };
 
-  const saveSurveyData = (survey, completed = false) => {
+  const saveSurveyData = (survey, doSurveySessionClear = false) => {
     var data = survey.data;
+    // delete data.surveyId;
     data.pageNo = survey.currentPageNo;
 
-    window.localStorage.setItem(storageName, JSON.stringify(data));
-
     if (surveyId) {
+      window.localStorage.setItem(
+        storageName,
+        JSON.stringify(Object.assign({}, data, { surveyId }))
+      );
+
       $.ajax({
         method: 'PUT',
         url: `/surveys/${surveyId}`,
@@ -71,7 +75,7 @@
           json: data,
         },
       }).then((_) => {
-        if (completed) {
+        if (doSurveySessionClear) {
           surveySessionClear();
         }
       });
@@ -81,10 +85,17 @@
         data: {
           json: data,
         },
-      }).then((resp) => {
-        surveyId = data.surveyId = resp.id;
-        window.localStorage.setItem(storageName, JSON.stringify(data));
-      });
+      })
+        .then((resp) => {
+          surveyId = resp.id;
+          window.localStorage.setItem(
+            storageName,
+            JSON.stringify(Object.assign({}, data, { surveyId }))
+          );
+        })
+        .catch((error) => {
+          window.localStorage.setItem(storageName, JSON.stringify(data));
+        });
     }
   };
 
