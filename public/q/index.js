@@ -61,8 +61,9 @@
     var data = survey.data;
     data.pageNo = survey.currentPageNo;
 
+    window.localStorage.setItem(storageName, JSON.stringify(data));
+
     if (surveyId) {
-      window.localStorage.setItem(storageName, JSON.stringify(data));
       $.ajax({
         method: 'PUT',
         url: `/surveys/${surveyId}`,
@@ -81,7 +82,7 @@
           json: data,
         },
       }).then((resp) => {
-        data.surveyId = resp.id;
+        surveyId = data.surveyId = resp.id;
         window.localStorage.setItem(storageName, JSON.stringify(data));
       });
     }
