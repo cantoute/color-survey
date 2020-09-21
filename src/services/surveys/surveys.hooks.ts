@@ -1,7 +1,10 @@
-import * as authentication from "@feathersjs/authentication";
+import * as authentication from '@feathersjs/authentication';
+import * as local from '@feathersjs/authentication-local';
+import { discard, iff, isProvider } from 'feathers-hooks-common';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const { authenticate } = authentication.hooks;
+const { protect } = local.hooks;
 
 export default {
   before: {
@@ -11,13 +14,13 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: [authenticate("jwt")],
+    remove: [authenticate('jwt')],
   },
 
   after: {
     all: [],
-    find: [],
-    get: [],
+    find: [iff(isProvider('external'), protect('id'))],
+    get: [iff(isProvider('external'), protect('id'))],
     create: [],
     update: [],
     patch: [],
