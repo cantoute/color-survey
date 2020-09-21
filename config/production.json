@@ -1,4 +1,4 @@
 {
-  "host": "color-survey-app.feathersjs.com",
+  "host": "localhost",
   "port": "PORT"
 }
