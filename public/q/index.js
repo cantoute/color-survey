@@ -1,4 +1,7 @@
 (function ($) {
+  // const API_SURVEY = '/surveys';
+  const API_SURVEY = 'https://questionnaire.gj-c.fr/surveys'
+
   Survey.StylesManager.applyTheme('modern');
 
   var localSurveyStrings = {
@@ -73,7 +76,7 @@
 
       $.ajax({
         method: 'PUT',
-        url: `/surveys/${surveyId}`,
+        url: `${API_SURVEY}/${surveyId}`,
         data: {
           json: data,
         },
@@ -84,7 +87,7 @@
       });
     } else {
       $.post({
-        url: '/surveys/',
+        url: `${API_SURVEY}/`,
         data: {
           json: data,
         },
