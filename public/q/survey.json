@@ -1,40 +1,630 @@
 {
-  "questionTitlePattern":"requireNumTitle",
-  "questionStartIndex":"# A)",
-  "requiredText":"(*)",
+  "locale":"fr",
   "pages":[
     {
-      "title":"page {pageno} / {pagecount}",
-      "questions":[
+      "name":"Questions principales",
+      "elements":[
         {
-          "type":"text",
-          "name":"name",
-          "title":"Please type your name",
-          "isRequired":true
+          "type":"html",
+          "name":"question2",
+          "html":"Bonjour, d'après toi..."
         },
         {
-          "type":"text",
-          "name":"email",
-          "title":"Please type your e-mail",
+          "type":"html",
+          "name":"question44"
+        },
+        {
+          "type":"comment",
+          "name":"question7",
+          "title":"Qu’est-ce qui a bien fonctionné dans le mouvement GJ ?"
+        },
+        {
+          "type":"comment",
+          "name":"question3",
+          "title":"Qu’est-ce qui a mal fonctionné dans le mouvement GJ ?"
+        },
+        {
+          "type":"comment",
+          "name":"question10",
+          "title":"Qu’est-ce qui a bien fonctionné dans TES groupes GJ ?"
+        },
+        {
+          "type":"comment",
+          "name":"question11",
+          "title":"Qu’est-ce qui a mal fonctionné dans TES groupes GJ ?"
+        },
+        {
+          "type":"comment",
+          "name":"question5",
+          "title":"Des idées d'amélioration pour le mouvement ?"
+        },
+        {
+          "type":"radiogroup",
+          "name":"question8",
+          "title":"Acceptes-tu de répondre à d’autres questions (toutes facultatives) par thématique ?",
+          "description":"Des questions plus précises sur l'organisation, la chronologie, les outils numériques, l'influence, les médias, ... afin d'y voir plus clair (ça peut prendre un peu de temps, mais ce serait utile).",
           "isRequired":true,
-          "validators":[
+          "choices":[
             {
-              "type":"email"
+              "value":"item1",
+              "text":"Oui, j'ai du temps là "
+            },
+            {
+              "value":"item2",
+              "text":"Non, j'ai trop peu de temps là"
             }
           ]
+        },
+        {
+          "type":"expression",
+          "name":"question51",
+          "commentText":"Other (describe)"
         }
       ]
     },
     {
-      "title":"This is the page {pageno} of {pagecount}.",
-      "questions":[
+      "name":"Questions thématiques (facultatif)",
+      "elements":[
+        {
+          "type":"html",
+          "name":"Questions thématiques facultatives",
+          "html":"Questions thématiques facultatives : Voici quelque sujet précis pour lesquels des avis semblent vraiment important... tu peux réagir à ce qui t'inspire et ignorer le reste."
+        },
+        {
+          "type":"html",
+          "name":"Identité",
+          "html":{
+            "default":"Identité",
+            "fr":"🔴 Identité"
+          }
+        },
         {
           "type":"comment",
-          "name":"comment",
-          "title":"{name}, please tell us what is on your mind"
+          "name":"question6",
+          "title":"Quel est le but du mouvement ?"
+        },
+        {
+          "type":"comment",
+          "name":"question9",
+          "title":"Et toi, quel est ton but dans le mouvement ?"
+        },
+        {
+          "type":"comment",
+          "name":"question12",
+          "title":{
+            "default":"Qu’est ce qui vous unis ?",
+            "fr":"Qu’est-ce qui unis le mouvement ?"
+          }
+        },
+        {
+          "type":"html",
+          "name":"Influences des médias",
+          "html":{
+            "default":"Influences des médias",
+            "fr":"🔴 Relations avec les médias"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question13",
+          "title":{
+            "default":"Que penses-tu du traitement médiatique des Gilets Jaunes ?",
+            "fr":"Que penses-tu du traitement médiatique des Gilets Jaunes ? Et des relations avec les médias ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question14",
+          "title":{
+            "default":"Comment as-tu ressentis l’influence de l’actualité sur la mobilisation ?",
+            "fr":"Quelle(s) influence(s) a eu l’actualité sur la mobilisation ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question15",
+          "title":"Quelle(s) actualité(s) par exemple ?"
+        },
+        {
+          "type":"comment",
+          "name":"question16",
+          "title":"Comment ?"
+        },
+        {
+          "type":"html",
+          "name":"question18"
+        },
+        {
+          "type":"html",
+          "name":"question17",
+          "html":{
+            "default":"Influences des individus",
+            "fr":"🔴 Influences des individus"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question46",
+          "title":{
+            "fr":"Quelles RÉUSSITES sont particulièrement liées à l'influence de certaines personnes ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question19",
+          "title":{
+            "default":"Si oui, de quelle manière ?",
+            "fr":"Sur quelle(s) action(s), par exemple ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question20",
+          "title":{
+            "fr":"Et de quelle manière ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question47",
+          "title":{
+            "fr":"Quelles DIFFICULTÉS sont particulièrement liées à l'influence de certaines personnes ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question45",
+          "title":{
+            "fr":"Sur quelle(s) action(s), par exemple ?"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question21",
+          "title":{
+            "default":"Si oui, de quelle manière ?",
+            "fr":"Et de quelle manière ?"
+          }
+        },
+        {
+          "type":"text",
+          "name":"question66",
+          "title":{
+            "fr":"Qu'est-ce qui a pu manquer ?"
+          }
+        },
+        {
+          "type":"html",
+          "name":"question22",
+          "html":{
+            "default":"Outils numériques",
+            "fr":"🔴 Outils numériques"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question23",
+          "title":"Quels outils numériques t'ont aidé dans le mouvement ?"
+        },
+        {
+          "type":"comment",
+          "name":"question24",
+          "title":"Quels types d'outils numériques manque-t-il d’après toi ?"
+        },
+        {
+          "type":"html",
+          "name":"question48"
+        },
+        {
+          "type":"html",
+          "name":"question25",
+          "html":{
+            "default":"Stratégies",
+            "fr":"🔴 Stratégies"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question26",
+          "title":"Quelles stratégies (GJ ou autres mouvements) te semblent efficaces ?"
+        },
+        {
+          "type":"comment",
+          "name":"question27",
+          "title":"Quelles stratégies (GJ ou autres mouvements) te semblent au contraire plutôt inefficaces ?"
+        },
+        {
+          "type":"html",
+          "name":"question49"
+        },
+        {
+          "type":"html",
+          "name":"question28",
+          "html":{
+            "default":"Communication",
+            "fr":"🔴 Communication"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question29",
+          "title":"Que penses-tu de la communication au sein des gilets jaunes ?"
+        },
+        {
+          "type":"comment",
+          "name":"question30",
+          "title":"Que penses-tu de la communication vers l'extérieur ?"
+        },
+        {
+          "type":"radiogroup",
+          "name":"question31",
+          "title":"As-tu réussi à recruter dans ton entourage ? ",
+          "choices":[
+            {
+              "value":"item1",
+              "text":"Oui"
+            },
+            {
+              "value":"item2",
+              "text":"Non"
+            }
+          ]
+        },
+        {
+          "type":"comment",
+          "name":"question32",
+          "title":"Si oui, comment ? Sinon, pourquoi ?"
+        },
+        {
+          "type":"html",
+          "name":"question50"
+        },
+        {
+          "type":"html",
+          "name":"question33",
+          "html":{
+            "default":"Ton engagement",
+            "fr":"🔴 Ton engagement"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question34",
+          "title":"Quels ont été les principaux obstacles à ton engagement ?",
+          "description":"Temps, argent, conflit, lassitude, isolement, ... ?"
+        },
+        {
+          "type":"rating",
+          "name":"question35",
+          "title":{
+            "default":"Es-tu motivé(e) à poursuivre ton engagement ?",
+            "fr":"Qu'en est-il de ta motivation à poursuivre ton engagement ?"
+          },
+          "rateMax":10,
+          "minRateDescription":"peu motivé",
+          "maxRateDescription":"très motivé"
+        },
+        {
+          "type":"comment",
+          "name":"question36",
+          "title":{
+            "default":"Comment souhaites-tu poursuivre ton engagement ? En faisant quoi ?",
+            "fr":"Comment souhaites-tu poursuivre ton engagement ?"
+          },
+          "description":{
+            "default":"(ne parlons pas de trucs illégaux ici)",
+            "fr":" "
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question53",
+          "title":{
+            "fr":" Quelles actions devraient être lancées ?"
+          }
+        }
+      ],
+      "visibleIf":"{question8} = 'item1'"
+    },
+    {
+      "name":"Conclusion",
+      "elements":[
+        {
+          "type":"html",
+          "name":"question67"
+        },
+        {
+          "type":"html",
+          "name":"question4",
+          "html":{
+            "default":"Conclusion",
+            "fr":"🔴 Les forces et faiblesses"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question56",
+          "title":{
+            "fr":"la stratégie* du groupe a plutôt été une force ou une faiblesse ?"
+          },
+          "description":{
+            "fr":"*conception et mise en œuvre des actions pour atteindre vos objectifs"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question58",
+          "title":{
+            "fr":"l'organisation* du groupe a plutôt été une force ou une faiblesse ?"
+          },
+          "description":{
+            "fr":"*capacité des membres au sein d’un groupe à communiquer, se décider, se coordonner, se répartir des tâches, en vue d’atteindre un résultat. "
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question59",
+          "title":{
+            "fr":"l’horizontalité* du groupe a plutôt été une force ou une faiblesse ?"
+          },
+          "description":{
+            "fr":"*recherche du consentement, transparence, adaptation, équité des pouvoirs, ... "
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question60",
+          "title":{
+            "fr":"la verticalité* du groupe a plutôt été une force ou une faiblesse ?"
+          },
+          "description":{
+            "fr":"*une personne seule (ou un petit nombre de personnes) décide pour le reste du groupe."
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question61",
+          "title":{
+            "fr":"l'usage des outils numériques a plutôt été une force ou une faiblesse ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question63",
+          "title":{
+            "fr":"la solidarité a plutôt été une force ou une faiblesse ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question57",
+          "title":{
+            "fr":"les compétences ou savoir-faire ont plutôt été une force ou une faiblesse ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question62",
+          "title":{
+            "fr":"la communication vers l'extérieur du groupe a plutôt été une force ou une faiblesse ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question64",
+          "title":{
+            "fr":"l'entente dans le groupe a plutôt été une force (bonne) ou une faiblesse (mauvaise) ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question65",
+          "title":{
+            "fr":"la reconnaissance a plutôt été une force (bonne) ou une faiblesse (faible) ?"
+          },
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":{
+            "fr":"Faiblesse"
+          },
+          "maxRateDescription":{
+            "fr":"Force"
+          }
+        },
+        {
+          "type":"html",
+          "name":"question1"
+        },
+        {
+          "type":"html",
+          "name":"question42",
+          "html":{
+            "fr":"🔴 Informations"
+          }
+        },
+        {
+          "type":"rating",
+          "name":"question38",
+          "title":"Jusqu’à présent, quel a été ton niveau d’engagement dans le mouvement GJ ?",
+          "description":"Tu as participé plutôt de temps en temps, ou bien de manière très active ?",
+          "isRequired":true,
+          "rateMax":10,
+          "minRateDescription":"un peu actif",
+          "maxRateDescription":"très actif"
+        },
+        {
+          "type":"text",
+          "name":"question54",
+          "title":{
+            "fr":"Quels savoir-faire as-tu mis à disposition du mouvement ?"
+          }
+        },
+        {
+          "type":"text",
+          "name":"question52",
+          "title":{
+            "fr":"Et quels savoir-faire aurais-tu voulu mettre à disposition du mouvement ? (facultatif)"
+          }
+        },
+        {
+          "type":"dropdown",
+          "name":"question41",
+          "title":"Juste pour essayer de comprendre les différences générationnelles, tu as quel âge ? (facultatif) ",
+          "valueName":"Age",
+          "choices":[
+            {
+              "value":"item1",
+              "text":"0 à 10 ans (vraiment ?)"
+            },
+            {
+              "value":"item2",
+              "text":"10 à 20 ans"
+            },
+            {
+              "value":"item3",
+              "text":"20 à 30 ans"
+            },
+            {
+              "value":"item4",
+              "text":"30 à 40 ans"
+            },
+            {
+              "value":"item5",
+              "text":"50 à 60 ans"
+            },
+            {
+              "value":"item6",
+              "text":"60 à 70 ans"
+            },
+            {
+              "value":"item7",
+              "text":"70 à 80 ans"
+            },
+            {
+              "value":"item8",
+              "text":"80+ (wooow !!)"
+            }
+          ],
+          "optionsCaption":"Age"
+        },
+        {
+          "type":"text",
+          "name":"question40",
+          "title":{
+            "default":"Et pour mieux comprendre les différences entre les régions... tu es de quel département (facultatif) ?",
+            "fr":"Et pour mieux comprendre les différences entre les régions... tu es de quel département ? (facultatif)"
+          }
+        },
+        {
+          "type":"text",
+          "name":"question39",
+          "title":{
+            "default":"Tu peux nous donner une adresse mail ANONYME si tu souhaites que l'on puisse te contacter et t'envoyer les résultats ce travail (facultatif)",
+            "fr":"Adresse mail ANONYME si tu souhaites que l'on puisse te contacter et t'envoyer les résultats de ce travail (facultatif)"
+          }
+        },
+        {
+          "type":"text",
+          "name":"question55",
+          "title":{
+            "fr":"Ou autre moyen de contact (facebook, discord, ...)"
+          },
+          "description":{
+            "fr":"Tu peux rejoindre le serveur discord du site ici : https://discord.gg/c5FfRJ2"
+          }
+        },
+        {
+          "type":"comment",
+          "name":"question37",
+          "title":{
+            "fr":"Des sujets importants ont-ils été oubliés dans ce formulaire ? (facultatif)"
+          }
+        },
+        {
+          "type":"html",
+          "name":"question43",
+          "html":"Merci beaucoup d'avoir pris ce temps !"
         }
       ]
     }
   ],
-  "completedHtml":"<p><h4>Thank you for sharing this information with us.</h4></p><p>Your name is: <b>{name}</b></p><p>Your email is: <b>{email}</b></p><p>This is what is on your mind:</p><p>{comment}</p>"
+  "sendResultOnPageNext":true,
+  "progressBarType":"correctquestions",
+  "startSurveyText":"Commencer",
+  "pagePrevText":"Précédent",
+  "pageNextText":"Suivant",
+  "completeText":"Envoyer",
+  "requiredText":"(obligatoire)"
 }
