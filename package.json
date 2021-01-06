@@ -70,7 +70,7 @@
     "@types/validator": "^10.11.3",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "eslint": "^7.9.0",
     "jest": "^26.4.2",
     "shx": "^0.3.2",
